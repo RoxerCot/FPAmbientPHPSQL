@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import RootLayout from "../layouts/RootLayout";
 import PrivateLayout from "../layouts/PrivateLayout";
-import SesionLayout from "../layouts/PrivateLayout";
+import SesionLayout from "../layouts/SesionLayout";
+import HomeLayout from "../layouts/HomeLayout";
 
 import NotFound from "../pages/NotFound";
 import LogIn from "../pages/LogIn";
@@ -24,21 +25,26 @@ export const router = createBrowserRouter([
         errorElement: <NotFound />,
         children: [
           {
-            index: true,
-            element: <Home />,
-            active: "true",
-          },
-          {
-            path: "/services",
-            element: <Services />,
-          },
-          {
-            path: "/us",
-            element: <Us />,
-          },
-          {
-            path: "/contact",
-            element: <Contact />,
+            element: <HomeLayout />,
+            children: [
+              {
+                index: true,
+                element: <Home />,
+                active: "true",
+              },
+              {
+                path: "/services",
+                element: <Services />,
+              },
+              {
+                path: "/us",
+                element: <Us />,
+              },
+              {
+                path: "/contact",
+                element: <Contact />,
+              },
+            ],
           },
           {
             path: "/profilesuite",

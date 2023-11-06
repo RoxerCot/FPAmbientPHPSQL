@@ -2,13 +2,13 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
 const PrivateLayout = () => {
-  const { user, ready } = useUserContext();
-  console.log(user, ready);
+  const { user, ready, sesion } = useUserContext();
+  console.log(user, ready, sesion);
 
   return (
     <>
       {ready ? (
-        <>{user ? <Outlet /> : <Navigate to="/" />}</>
+        <>{sesion && user ? <Outlet /> : <Navigate to="/" />}</>
       ) : (
         <p>Loading....</p>
       )}

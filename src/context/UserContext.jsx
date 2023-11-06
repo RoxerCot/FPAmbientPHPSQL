@@ -7,7 +7,7 @@ const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState(false);
-  const [dataJSON, setDataJSON] = useState(false);
+  const [sesion, setSesion] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function UserContextProvider({ children }) {
       });
       const { Sesion } = await resp.json();
       setReady(true);
-      setDataJSON(Sesion);
+      setSesion(Sesion);
       if (Sesion) {
         setUser(JSON.parse(localStorage.getItem("Usuario")));
       }
@@ -30,7 +30,7 @@ export default function UserContextProvider({ children }) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, dataJSON, ready }}>
+    <UserContext.Provider value={{ user, sesion, ready }}>
       {children}
     </UserContext.Provider>
   );
