@@ -65,9 +65,7 @@ const HomeNavbar = () => {
               </>
             ) : (
               <>
-                <Dropdown.Item onClick={handleLogout}>
-                  Iniciar sesion
-                </Dropdown.Item>
+                <NavLink to="/sesion/login">Inicia Sesion</NavLink>
               </>
             )
           ) : (
