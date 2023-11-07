@@ -1,20 +1,24 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import { useEffect } from "react";
 
 const URL = "http://localhost/BackEnd2/Interface.php";
 
 const HomeNavbar = () => {
   const { user, ready, sesion } = useUserContext();
   const navigate = useNavigate();
+  var avatarimg = "";
 
   if (ready) {
-    var avatarimg =
+    avatarimg =
       sesion && user
         ? "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
         : "";
   }
-
+  const handleLogin = () => {
+    navigate("/sesion/login");
+  };
   const handleLogout = async () => {
     try {
       var data = new FormData();
@@ -31,8 +35,10 @@ const HomeNavbar = () => {
     const resp = await fetch(url, {
       method: "POST",
       body: data,
-    }).then(() => navigate("/"));
+    }).then(() => navigate(0));
   };
+
+  // console.log(avatarimg, ready, user, sesion);
 
   return (
     <Navbar fluid rounded>
@@ -65,7 +71,9 @@ const HomeNavbar = () => {
               </>
             ) : (
               <>
-                <NavLink to="/sesion/login">Inicia Sesion</NavLink>
+                <Dropdown.Item onClick={handleLogin}>
+                  Iniciar sesion
+                </Dropdown.Item>
               </>
             )
           ) : (
