@@ -1,4 +1,4 @@
-import { Sidebar } from "flowbite-react";
+import { Card, Sidebar } from "flowbite-react";
 import {
   HiArrowSmRight,
   HiChartPie,
@@ -7,11 +7,10 @@ import {
   HiTable,
   HiUser,
 } from "react-icons/hi";
-
 const ProfileSidebar = () => {
   return (
-    <>
-      <Sidebar aria-label="Sidebar with multi-level dropdown example">
+    <Card className="shadow-none rounded-none dark:bg-gray-800 bg-gray-50 h-screen border-spacing-0 border-gray-50 dark:border-gray-800">
+      <Sidebar className="px-0 py-0 rounded-none">
         <Sidebar.Logo href="#" img="" imgAlt="HSL logo">
           HSL
         </Sidebar.Logo>
@@ -49,7 +48,7 @@ const ProfileSidebar = () => {
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
-    </>
+    </Card>
   );
 };
 export default ProfileSidebar;

@@ -1,4 +1,4 @@
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { Avatar, DarkThemeToggle, Dropdown, Navbar } from "flowbite-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
@@ -43,14 +43,15 @@ const HomeNavbar = () => {
   // console.log(avatarimg, ready, user, sesion);
 
   return (
-    <Navbar fluid rounded>
+    <Navbar fluid className="h-16">
       <Navbar.Brand href="https://flowbite-react.com">
         <img src="" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           Flowbite React
         </span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
+      <div className="flex md:order-2 mr-12">
+        <DarkThemeToggle className="mr-8" />
         <Dropdown
           arrowIcon={false}
           inline
@@ -87,52 +88,16 @@ const HomeNavbar = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <NavLink
-          to="/"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "black",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-        >
+        <NavLink className="active:font-bold text-xl dark:text-white " to="/">
           Inicio
         </NavLink>
-        <NavLink
-          to="/us"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "black",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-        >
+        <NavLink className="text-xl dark:text-white active:font-bold" to="/us">
           Nosotros
         </NavLink>
-        <NavLink
-          to="/services"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "black",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-        >
+        <NavLink className="text-xl dark:text-white" to="/services">
           Servicios
         </NavLink>
-        <NavLink
-          to="/contact"
-          style={({ isActive, isPending, isTransitioning }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "black",
-              viewTransitionName: isTransitioning ? "slide" : "",
-            };
-          }}
-        >
+        <NavLink className="text-xl dark:text-white" to="/contact">
           Conactanos
         </NavLink>
       </Navbar.Collapse>

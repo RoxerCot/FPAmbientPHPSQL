@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <Card className="h-1/2 w-1/4">
-      <form className="flex max-w-md h-full flex-col gap-4">
+      <form className="flex max-w-md h-full flex-col gap-4  dark:text-white">
         <div className="flex justify-center items-center flex-col">
           <Button onClick={handleHome} className="w-1/6 self-start mb-4">
             <AiFillHome />
@@ -81,13 +81,13 @@ const LoginForm = () => {
         </Button>
       </form>
       <Banner>
-        <div className="flex w-full justify-between border-t border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
+        <div className="flex w-full justify-between border-t border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700 ">
           <div className="mx-auto flex items-center">
             <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
               <span className="mr-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 p-1 dark:bg-gray-600">
                 <GiArchiveRegister className="h-4 w-4" />
               </span>
-              <span className="[&_p]:inline">
+              <span className="[&_p]:inline  dark:text-white">
                 ¿No tienes cuenta?..
                 <Link
                   to="/sesion/register"
