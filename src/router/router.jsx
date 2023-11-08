@@ -14,6 +14,7 @@ import Services from "../pages/Services";
 import Us from "../pages/Us";
 import Contact from "../pages/Contact";
 import Configuration from "../pages/Configuration";
+import ProfileLayout from "../layouts/ProfileLayout";
 
 export const router = createBrowserRouter([
   {
@@ -47,17 +48,23 @@ export const router = createBrowserRouter([
             ],
           },
           {
-            path: "/profilesuite",
+            path: "/priv",
             element: <PrivateLayout />,
             children: [
               {
-                index: true,
-                element: <Info />,
-                active: "true",
-              },
-              {
-                path: "/profilesuite/config",
-                element: <Configuration />,
+                path: "/priv/profile",
+                element: <ProfileLayout />,
+                children: [
+                  {
+                    index: true,
+                    element: <Info />,
+                    active: "true",
+                  },
+                  {
+                    path: "/priv/profile/config",
+                    element: <Configuration />,
+                  },
+                ],
               },
             ],
           },

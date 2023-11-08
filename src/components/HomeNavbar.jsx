@@ -1,7 +1,6 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import { useEffect } from "react";
 
 const URL = "http://localhost/BackEnd2/Interface.php";
 
@@ -16,6 +15,9 @@ const HomeNavbar = () => {
         ? "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
         : "";
   }
+  const handlePerfil = () => {
+    navigate("/priv/profile");
+  };
   const handleLogin = () => {
     navigate("/sesion/login");
   };
@@ -63,7 +65,7 @@ const HomeNavbar = () => {
                     name@hsl.com
                   </span>
                 </Dropdown.Header>
-                <Dropdown.Item>Perfil</Dropdown.Item>
+                <Dropdown.Item onClick={handlePerfil}>Perfil</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={handleLogout}>
                   Cerrar sesion
